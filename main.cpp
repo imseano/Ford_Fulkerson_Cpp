@@ -1,18 +1,8 @@
 // Name: Sean Oreta
 // CWID: 886349166
 // Email: soreta@csu.fullerton.edu
-// Class: CPSC240
-// Assignment: 5
-// Program Info:
-//    Program Name: Merge Sort Benchmark
-//    Start Date: 2022-11-01
-//    Date of Completion: N/A
-// Summary:
-//    
-// This File:
-//    File name: MSort.cpp
-//    Language: C++
-//    Must be run alongside intarray.asm
+// Class: CPSC335
+// Assignment: 1
 
 #include <iostream>
 #include <vector>
@@ -32,7 +22,6 @@ int main() {
                 { 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0 }
             };
-    printf("hi\n");
     int maxFlow = fordFulkerson(graph, 0, 1);
     printf("The max flow for this system is: %d\n", maxFlow);
     return 0;
