@@ -3,6 +3,9 @@
 // Email: soreta@csu.fullerton.edu
 // Class: CPSC335
 // Assignment: 1
+// Notes: https://www.programiz.com/dsa/ford-fulkerson-algorithm 
+// 	  https://www.youtube.com/watch?v=Tl90tNtKvxs&t=190s
+// 		^ Websites used as a reference for Ford Fulkerson 
 
 #include <iostream>
 #include <vector>
@@ -42,18 +45,23 @@ int fordFulkerson(std::vector<std::vector<int>> graph, int start, int end) {
  std::vector<std::vector<int>> rgraph = graph;
 
  parent.resize(graph.size());
+
+ // Looping different paths.
  while (BFS(rgraph, start, end)) {
     int flow = INT_MAX;
     int current_node;
+    // Find smallest flow in path.
     for (int x = end; x != start; x = parent[x]) {
     	current_node = parent[x];
 	flow = std::min(flow, rgraph[current_node][x]);
     }
+    // Adjust values based on flow.
     for (int x = end; x != start; x = parent[x]) {
     	current_node = parent[x];
 	rgraph[current_node][x] -= flow;
 	rgraph[x][current_node] += flow;
     }
+    // Add to max flow. 
     max_flow += flow;
     
  }
